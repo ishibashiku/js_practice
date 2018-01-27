@@ -1,6 +1,6 @@
 messageViewer(calDiscountTicket(100000, [0, 0, 0]));
 
-// メッセージの配列を受け取り、表示する機能
+// メッセージの配列を受け取り、表示するオマケ機能
 function messageViewer(Messages){
   for(var i = 0; i < Messages.length; i++){
     console.log(Messages[i]);
@@ -21,8 +21,8 @@ function calDiscountTicket(total, number){
 
   // 想定外の入力値に対するチェック処理 5000円未満
   if(total < 5000){
-    messsage = '割引券は5000円以上の場合のみ、使用できます';
-    AllMessages.push(messsage);
+    message = '割引券は5000円以上の場合のみ、使用できます';
+    AllMessages.push(message);
     return AllMessages;
   }
 
@@ -30,9 +30,9 @@ function calDiscountTicket(total, number){
   for(var i = 0; i < number.length; i++){
     if(number[i] != 0){
       break;
-    }else if(i = number.length - 1){
-      messsage = '使用できる割引券はありません';
-      AllMessages.push(messsage);
+    }else if(i === number.length - 1){
+      message = '使用できる割引券はありません';
+      AllMessages.push(message);
       return AllMessages;
     }
   }
@@ -64,7 +64,7 @@ function calDiscountTicket(total, number){
   }
   // メッセージ作成処理 使用可能な割引券に関するメッセージのみ格納する
   for(var i = 0; i < availableTicket.length; i++){
-    if(availableTicket[i] != 0){
+    if(availableTicket[i] !== 0){
       message = discount[i] + '円の割引券を' + availableTicket[i] + '枚使用できます。';
       AllMessages.push(message);
     }
